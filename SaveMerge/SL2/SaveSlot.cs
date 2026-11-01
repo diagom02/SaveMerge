@@ -1,4 +1,4 @@
-﻿using SoulsFormats;
+using SoulsFormats;
 using System;
 using System.IO;
 
@@ -32,7 +32,16 @@ namespace SaveMerge
             }
         }
 
-        public void WriteSteamID(int steamID)
+        public ulong SteamID
+        {
+            get
+            {
+                int offset = BitConverter.ToInt32(SlotData, 0x58);
+                return BitConverter.ToUInt64(SlotData, offset + 0x6F);
+            }
+        }
+
+        public void WriteSteamID(ulong steamID)
         {
             byte[] buff = BitConverter.GetBytes(steamID);
             int offset = BitConverter.ToInt32(SlotData, 0x58);

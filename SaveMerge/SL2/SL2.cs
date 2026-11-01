@@ -1,4 +1,4 @@
-﻿using SoulsFormats;
+using SoulsFormats;
 using System;
 using System.Text.RegularExpressions;
 
@@ -8,7 +8,7 @@ namespace SaveMerge
     {
         public string Path { get; set; }
 
-        public int SteamID
+        public ulong SteamID
         {
             get => Menu.SteamID;
             set => Menu.SteamID = value;
